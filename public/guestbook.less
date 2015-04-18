@@ -1,0 +1,99 @@
+body {
+	background: transparent;
+}
+
+a {
+	cursor: pointer;
+}
+
+.btn-beside {
+	margin-left: 10px;
+}
+
+.spinner {
+	display: inline-block;
+	opacity: 1;
+	width: auto;
+	
+	.transition(@prop: opacity; @time: 0.25s;);
+	.transition(@prop: width; @time: 0.25s;);
+}
+
+.panel.panel-noborder {
+	.box-shadow();
+}
+
+.list-group > :first-child {
+	padding-top: 0px;
+	border-top: 0px;
+}
+
+.list-group > :first-child h5 {
+	margin-top: 0px;
+}
+
+.list-group-item {
+	border: 0px;
+	border-top: 1px solid #ddd;
+	overflow: hidden;
+	.transition();
+}
+
+.list-group-item.ng-enter {
+	opacity:0;
+    max-height: 0px;
+}
+
+.list-group-item.ng-enter-active {
+    opacity:1;
+    max-height: 200px;
+}
+
+.list-group-item.ng-leave.ng-leave-active {
+    opacity:0;
+    max-height:0;
+}
+
+.list-group-item.ng-leave {
+    opacity:1;
+    max-height:200px;
+}
+
+textarea {
+    resize: none;
+}
+
+.delayed-show.ng-hide-remove.ng-hide-remove-active {
+	.transition();
+	opacity: 1;
+	max-height:200px;
+}
+
+.delayed-show.ng-hide {
+	opacity: 0;
+	max-height:0;
+}
+
+.panel-footer.pagination-footer {
+	padding: 0px 10px;
+	background-color: transparent;
+}
+
+.pager.pager-footer {
+	margin: 10px 0px;
+}
+
+/* Mixins */
+.transition (@prop: all, @time: 0.25s, @ease: linear) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+
+.box-shadow (@inset: 0px, @offset: 0px, @blur-radius: 0px, @spread-radius: 0px, @color: rgba(0,0,0,0)) {
+	-webkit-box-shadow: @inset @offset @blur-radius @spread-radius @color;
+	-moz-box-shadow: @inset @offset @blur-radius @spread-radius @color;
+	box-shadow: @inset @offset @blur-radius @spread-radius @color;
+}

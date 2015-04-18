@@ -1,0 +1,65 @@
+<div class="row">
+	<h3>Guest Book</h3>
+	<div class="col-xs-4">
+		<form name="guestBook.guestBookForm" class="form-horizontal css-form" novalidate>
+			<div class="form-group" show-errors>
+				<input type="text" class="form-control" ng-model="entry.name" name="name" ng-disabled="guestBook.isSubmitting" placeholder="Name" required></input>
+				<!-- span class="help-block error" ng-show="guestBookForm.name.$dirty && guestBookForm.name.$error.required">Please enter your name.</p -->
+			</div>
+			<div class="form-group" show-errors>
+				<input type="text" class="form-control" ng-model="entry.country" name="country" ng-disabled="guestBook.isSubmitting" placeholder="City, State, Country" required></input>
+				<!-- span class="help-block error" ng-show="guestBookForm.country.$dirty && guestBookForm.country.$error.required">Please enter a country.</p -->
+			</div>
+			<div class="form-group" show-errors>
+				<textarea class="form-control" ng-model="entry.message" name="message" ng-disabled="guestBook.isSubmitting" placeholder="Message" rows="10" required ng-maxlength="600"></textarea>
+				<!-- span class="help-block error" ng-show="guestBookForm.message.$dirty && guestBookForm.message.$error.required">Please enter a message.</p -->
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary pull-left" ng-click="guestBook.addEntry(entry)" ng-disabled="guestBook.isSubmitting">
+					<span class="spinner" ng-show="guestBook.isSubmitting"><i class="fa fa-circle-o-notch fa-spin"></i></span> Add
+				</button>
+				<button type="submit" class="btn btn-default pull-left btn-beside" ng-click="guestBook.resetForm(entry)" ng-disabled="guestBook.isSubmitting">Reset</button>
+			</div>
+		</form>
+	</div>
+	<div class="col-xs-8">
+		<div class="panel panel-noborder">
+			<div class="panel-body" ng-show="guestBook.guestBookEntries.length === 0">
+				No entries yet! Be the first one to add one!
+			</div>
+			<div class="list-group">
+				<div ng-repeat="entry in guestBook.guestBookEntries.items track by entry._id" class="list-group-item">
+					<p class="list-group-item-text">
+						<h5>{{entry.message}}</h5>
+					</p>
+					<p class="text-right">
+						<small>{{entry.name}}</small>
+						<br>
+						<small>{{entry.country}}</small>
+						<br>
+						<small><em>{{entry.date}}</em></small>
+						
+					</p>
+					<div class="clearfix">
+						<button type="button" class="btn btn-danger btn-xs pull-right" ng-click="guestBook.removeEntry(entry)" ng-show="guestBook.isOwner" ng-disabled="guestBook.isSubmitting">Remove</button>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer pagination-footer">
+				<nav class="text-center">
+					<ul class="pagination">
+					    <li>
+							<a ng-click="guestBook.loadPage(guestBook.currentPage-1)" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+						</li>
+						<li ng-repeat="entry in guestBook.entriesRange() track by $index" ng-class="{ 'active': guestBook.currentPage===$index+1}">
+							<a ng-click="guestBook.loadPage($index+1)">{{$index+1}}</a>
+						</li>
+						<li>
+							<a ng-click="guestBook.loadPage(guestBook.currentPage+1)" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+						</li>
+				  	</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "name": "site-extension",
+  "description": "Wix Guest Book",
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "wixLongDescription": "A guest book example."
+}
