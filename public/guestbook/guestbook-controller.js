@@ -1,5 +1,3 @@
-import wixData from 'wix-data';
-
 angular.module('guestbook')
 	.controller('GuestBookCtrl',['$scope','guestBookService', 'guestBookEntries' , function ($scope, guestBookService, guestBookEntries) {
 		'use strict';
