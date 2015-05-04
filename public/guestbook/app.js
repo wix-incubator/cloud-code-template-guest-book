@@ -24,4 +24,3 @@ angular.module('guestbook', ['ngRoute', 'ngAnimate'])
 				redirectTo: '/'
 			});
 	});
-	
