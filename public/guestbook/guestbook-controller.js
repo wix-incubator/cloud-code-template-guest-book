@@ -16,8 +16,6 @@ angular.module('guestbook')
   				return;
   			}
 
-  			a
-
 			this.isSubmitting = true;
 
 			guestBookService.saveEntry(entry).then(function onSuccess(data) {
