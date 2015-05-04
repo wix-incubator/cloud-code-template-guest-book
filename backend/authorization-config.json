@@ -7,13 +7,13 @@
       "read": true
     },
     "siteMember": {
-      "insert": false,
+      "insert": true,
       "update": false,
       "remove": false,
-      "read": false
+      "read": true
     },
     "anonymous": {
-      "insert": false,
+      "insert": true,
       "update": false,
       "remove": false,
       "read": true
