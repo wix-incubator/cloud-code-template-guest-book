@@ -13,7 +13,7 @@ a {
 	font-size: 30px;
 	font-weight: 300;
 	text-align: center;
-  margin-bottom: 58px;
+  	margin-bottom: 58px;
 }
 
 .user-info {
@@ -61,6 +61,13 @@ textarea.form-control {
 	height: 100%;
 }
 
+.has-error {
+	.form-control:focus {
+		.box-shadow();
+		outline: none;
+	}
+}
+
 .form-control {
 	resize: none;
 	border: 1px solid #000000;
@@ -70,14 +77,8 @@ textarea.form-control {
 
 	&:focus {
 		border-color: #000000;
-	  box-shadow: none;
-		outline: 1px solid #000000;
-	}
-
-	&:hover {
-		border-color: #000000;
-	  box-shadow: none;
-		outline: 1px solid #000000;
+	  	.box-shadow();
+		outline: none;
 	}
 
 	/*placeholder style*/
@@ -109,6 +110,7 @@ textarea.form-control {
 .btn-danger {
 	cursor: pointer;
 	border-radius: 0;
+	outline: none !important;
 }
 
 .btn-primary {
@@ -116,18 +118,19 @@ textarea.form-control {
 	background: #000000;
 	color: #fff;
 	border-color: #000000;
-	border: 1px solid #fff;
+	border: 1px solid #000000;
 	cursor: pointer;
 	border-radius: 0;
+	outline: none !important;
 
 	&:hover,
 	&:focus,
 	&:active,
-	&[disabled] {
+	&[disabled],
+	&[disabled]:hover {
 	  color: #fff;
 	  background-color: #000000;
 	  border-color: #000000;
-	  outline: 0.5px solid #000000;
 	}
 }
 
@@ -150,37 +153,41 @@ textarea.form-control {
 		margin-bottom: 49px;
 		height: 1px;
 	}
+
+	&.ng-enter {
+		opacity:0;
+    	max-height: 0px;
+	}
+
+	&.ng-enter-active {
+    	opacity:1;
+    	max-height: 200px;
+	}
+
+	&.ng-leave.ng-leave-active {
+    	opacity:0;
+    	max-height:0;
+	}
+
+	&.ng-leave {
+    	opacity:1;
+    	max-height:200px;
+	}
 }
 
-.list-group-item.ng-enter {
-	opacity:0;
-    max-height: 0px;
-}
+.delayed-show {
+	&.ng-hide {
+		opacity: 0;
+		max-height:0;
+	}
 
-.list-group-item.ng-enter-active {
-    opacity:1;
-    max-height: 200px;
-}
-
-.list-group-item.ng-leave.ng-leave-active {
-    opacity:0;
-    max-height:0;
-}
-
-.list-group-item.ng-leave {
-    opacity:1;
-    max-height:200px;
-}
-
-.delayed-show.ng-hide-remove.ng-hide-remove-active {
-	.transition();
-	opacity: 1;
-	max-height:200px;
-}
-
-.delayed-show.ng-hide {
-	opacity: 0;
-	max-height:0;
+	&.ng-hide-remove {
+		&.ng-hide-remove-active {
+			.transition();
+			opacity: 1;
+			max-height:200px;
+		}
+	}
 }
 
 .load-more {
@@ -189,11 +196,12 @@ textarea.form-control {
 	font-weight: 400;
 }
 
-.panel-footer.pagination-footer {
-	padding: 0px 10px;
-	background-color: transparent;
+.panel-footer {
+	.pagination-footer {
+		padding: 0px 10px;
+		background-color: transparent;
+	}
 }
-
 
 /* vertical alignment styles */
 
