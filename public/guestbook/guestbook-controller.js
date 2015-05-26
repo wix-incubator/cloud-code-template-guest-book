@@ -1,10 +1,12 @@
+import {env} from 'wix-sdk';
+
 angular.module('guestbook')
 	.controller('GuestBookCtrl',['$scope','guestBookService', 'guestBookEntries' , function ($scope, guestBookService, guestBookEntries) {
 		'use strict';
 		var self = this;
 
 		this.isSubmitting = false;
-		this.isOwner = 'OWNER' === Wix.Utils.getPermissions();
+		this.isOwner = env.isSiteOwner();
 		this.guestBookEntries = guestBookEntries;
 		this.hasMoreEntries = guestBookService.hasMoreEntries;
 
