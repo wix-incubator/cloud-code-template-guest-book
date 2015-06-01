@@ -3,10 +3,12 @@ import wixData from 'wix-data';
 angular.module('guestbook')
 	.factory('guestBookService',['$q', function ($q) {
 		'use strict';
+		var collectionName = 'entries';
+
 		var guestBookEntries, currentCount, totalCount, hasMoreEntries;
 
 		function saveEntry(entry) {
-			return wixData.save('entries', entry).
+			return wixData.save(collectionName, entry).
 				then(function success(data) {
 					//TODO remove the copy when the dual object is fixed
 					var dataCopy = {};
@@ -21,7 +23,7 @@ angular.module('guestbook')
 		}
 
 		function removeEntry(entry) {
-			return wixData.remove('entries', entry._id).
+			return wixData.remove(collectionName, entry._id).
 				then(function success() {
 					guestBookEntries.splice(guestBookEntries.indexOf(entry), 1);
 					currentCount -= 1;
@@ -31,9 +33,8 @@ angular.module('guestbook')
 				});
 		}
 
-		//TODO remove this when wix data supports skip(0)
 		function loadEntries() {
-			return wixData.query('entries')
+			return wixData.query(collectionName)
 				.descending('_createdDate')
 				.limit(3)
 				.find()
@@ -48,7 +49,7 @@ angular.module('guestbook')
 
 		function loadNext() {
 			if(hasMoreEntries){
-				return wixData.query('entries')
+				return wixData.query(collectionName)
 					.descending('_createdDate')
 					.skip(currentCount)
 					.limit(3)

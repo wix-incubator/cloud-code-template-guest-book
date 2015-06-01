@@ -1,11 +1,7 @@
-body {
+.guestbook {
 	font-size: 14px;
 	font-weight: 300;
 	background: transparent;
-}
-
-a {
-	cursor: pointer;
 }
 
 .guestbook-header {
@@ -147,6 +143,10 @@ textarea.form-control {
 	overflow: hidden;
 	.transition();
 
+	.row {
+		min-height: 160px;
+	}
+
 	hr {
 		background-color:  #000000;
 		margin-top: 45px;
@@ -161,7 +161,7 @@ textarea.form-control {
 
 	&.ng-enter-active {
     	opacity:1;
-    	max-height: 200px;
+    	max-height: 266px;
 	}
 
 	&.ng-leave.ng-leave-active {
@@ -171,7 +171,7 @@ textarea.form-control {
 
 	&.ng-leave {
     	opacity:1;
-    	max-height:200px;
+    	max-height:266px;
 	}
 }
 
@@ -185,22 +185,16 @@ textarea.form-control {
 		&.ng-hide-remove-active {
 			.transition();
 			opacity: 1;
-			max-height:200px;
+			max-height:266px;
 		}
 	}
 }
 
 .load-more {
+	cursor: pointer;
 	color:  #363636;
 	font-size: 15px;
 	font-weight: 400;
-}
-
-.panel-footer {
-	.pagination-footer {
-		padding: 0px 10px;
-		background-color: transparent;
-	}
 }
 
 /* vertical alignment styles */

@@ -1,9 +1,11 @@
-import {env} from 'wix-sdk';
+import {env, geometry} from 'wix-sdk';
 
 angular.module('guestbook')
 	.controller('GuestBookCtrl',['$scope','guestBookService', 'guestBookEntries' , function ($scope, guestBookService, guestBookEntries) {
 		'use strict';
 		var self = this;
+		var initialHeight = 375;
+		var entryHeight = 266;
 
 		this.isSubmitting = false;
 		this.isOwner = env.isSiteOwner();
@@ -46,4 +48,23 @@ angular.module('guestbook')
 			//TODO Notify the user!
 			console.log(data);
 		}
+
+		$scope.$watch('guestBook.guestBookEntries.length', function(newLength) {
+			if (newLength === 0) {
+				//Default height
+				return geometry.setHeight(initialHeight + 92);
+			}
+
+			return geometry.setHeight(initialHeight + computeEntriesHeight());
+
+			function computeEntriesHeight() {
+				var computedHeight = newLength * entryHeight;
+
+				if(newLength >= 3) {
+					return  computedHeight + 50;
+				}
+
+				return computedHeight;
+			}
+		});
 	}]);
