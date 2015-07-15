@@ -1,10 +1,10 @@
 {
   "name": "guestbook",
-  "description": "Guestbook",
+  "description": "Guest Book",
   "private": true,
   "dependencies": {
   },
   "devDependencies": {
   },
-  "wixLongDescription": "A guestbook for leaving customer comments and feedback that you can manage"
+  "wixLongDescription": "A guest book for leaving customer comments and feedback that you can manage"
 }
