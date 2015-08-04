@@ -1,68 +1,68 @@
 <h3 class="guestbook-header">GUEST BOOK</h3>
 <form name="guestBook.guestBookForm" novalidate>
-	<div class="row">
-		<div class="col-xs-4 col-left">
-		  	<div class="form-group" show-errors>
-				<input type="text" class="form-control" ng-model="entry.name" name="name" ng-disabled="guestBook.isSubmitting" placeholder="NAME *" required>
-				<!-- span class="help-block error" ng-show="guestBookForm.name.$dirty && guestBookForm.name.$error.required">Please enter your name.</p -->
-			</div>
-			<div class="form-group" show-errors>
-				<input type="text" class="form-control" ng-model="entry.country" name="country" ng-disabled="guestBook.isSubmitting" placeholder="LOCATION *" required>
-				<!-- span class="help-block error" ng-show="guestBookForm.country.$dirty && guestBookForm.country.$error.required">Please enter a country.</p -->
-			</div>
-			<div class="form-group no-margin" show-errors>
-				<input type="email" class="form-control" ng-model="entry.email" name="email" ng-disabled="guestBook.isSubmitting" placeholder="EMAIL *" required>
-				<!-- span class="help-block error" ng-show="guestBookForm.country.$dirty && guestBookForm.country.$error.required">Please enter a country.</p -->
-			</div>
-	  	</div>
-	  	<div class="col-xs-6">
-		  	<div class="form-group no-margin" show-errors>
-				<textarea class="form-control" ng-model="entry.message" name="message" ng-disabled="guestBook.isSubmitting" placeholder="ENTRY *" required ng-maxlength="600"></textarea>
-				<!-- span class="help-block error" ng-show="guestBookForm.message.$dirty && guestBookForm.message.$error.required">Please enter a message.</p -->
-			</div>
-	  	</div>
-	  	<div class="col-xs-2 col-align-bottom col-right">
-	  		<div >
-				<button type="submit" class="btn btn-primary" ng-click="guestBook.addEntry(entry)" ng-disabled="guestBook.isSubmitting"> SUBMIT </button>
-			</div>
-	  	</div>
-	</div>
+  <div class="row">
+    <div class="col-xs-4 col-left">
+      <div class="form-group" show-errors>
+        <input type="text" class="form-control" ng-model="entry.name" name="name" ng-disabled="guestBook.isSubmitting" placeholder="NAME *" required>
+        <!-- span class="help-block error" ng-show="guestBookForm.name.$dirty && guestBookForm.name.$error.required">Please enter your name.</p -->
+      </div>
+      <div class="form-group" show-errors>
+        <input type="text" class="form-control" ng-model="entry.country" name="country" ng-disabled="guestBook.isSubmitting" placeholder="LOCATION *" required>
+        <!-- span class="help-block error" ng-show="guestBookForm.country.$dirty && guestBookForm.country.$error.required">Please enter a country.</p -->
+      </div>
+      <div class="form-group no-margin" show-errors>
+        <input type="email" class="form-control" ng-model="entry.email" name="email" ng-disabled="guestBook.isSubmitting" placeholder="EMAIL *" required>
+        <!-- span class="help-block error" ng-show="guestBookForm.country.$dirty && guestBookForm.country.$error.required">Please enter a country.</p -->
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="form-group no-margin" show-errors>
+        <textarea class="form-control" ng-model="entry.message" name="message" ng-disabled="guestBook.isSubmitting" placeholder="ENTRY *" required ng-maxlength="600"></textarea>
+        <!-- span class="help-block error" ng-show="guestBookForm.message.$dirty && guestBookForm.message.$error.required">Please enter a message.</p -->
+      </div>
+    </div>
+    <div class="col-xs-2 col-align-bottom col-right">
+      <div >
+        <button type="submit" class="btn btn-primary" ng-click="guestBook.addEntry(entry)" ng-disabled="guestBook.isSubmitting"> SUBMIT </button>
+      </div>
+    </div>
+  </div>
 </form>
 <div class="panel guestbook-panel">
-	<div class="panel-body text-center" ng-show="guestBook.guestBookEntries.length === 0">
-		No entries yet. Be the first to add one!
-	</div>
-	<div class="list-group no-padding">
-		<div ng-repeat="entry in guestBook.guestBookEntries track by entry._id" class="list-group-item no-padding">
-			<div class="row">
-	  			<div class="col-xs-4 col-left">
-		  			<p class="user-info">
-						<span>{{entry.name}}</span>
-						<br>
-						<span>{{entry.country}}</span>
-						<br>
-						<small><em>{{entry._createdDate | date}}</em></small>
-					</p>
-	  			</div>
-	  			<div class="col-xs-6 no-padding">
-	  				<p>{{entry.message}}</p>
-	  			</div>
-	  			<div class="col-xs-2 col-align-bottom col-right">
-					<button type="button" class="btn btn-danger btn-sm" ng-click="guestBook.removeEntry(entry)" ng-show="guestBook.isOwner" ng-disabled="guestBook.isSubmitting">Remove</button>
-	  			</div>
-			</div>
-			<hr>
-		</div>
-		<div class="load-more text-center" ng-show="guestBook.hasMoreEntries()" >
-			<span ng-click="guestBook.loadNext()">
-				View More entries
-				<br>
-				<svg xmlns="http://www.w3.org/2000/svg"
-					xmlns:xlink="http://www.w3.org/1999/xlink"
-					width="20px" height="10px">
-					<path fill="rgb(0,0,0)" fill-rule="evenodd" d="M 20.01 1.37C 20.01 1.37 10.45 10.01 10.45 10.01 10.45 10.01 10.23 9.77 10.23 9.77 10.23 9.77 10 10 10 10 10 10-0.01 0.9-0.01 0.9-0.01 0.9 0.8-0.01 0.8-0.01 0.8-0.01 10.34 8.41 10.34 8.41 10.34 8.41 19.17 0.43 19.17 0.43 19.17 0.43 20.01 1.37 20.01 1.37Z"/>
-				</svg>
-			</span>
-		</div>
-	</div>
+  <div class="panel-body text-center" ng-show="guestBook.guestBookEntries.length === 0">
+    No entries yet. Be the first to add one!
+  </div>
+  <div class="list-group no-padding">
+    <div ng-repeat="entry in guestBook.guestBookEntries track by entry._id" class="list-group-item no-padding">
+      <div class="row">
+        <div class="col-xs-4 col-left">
+          <p class="user-info">
+          <span>{{entry.name}}</span>
+          <br>
+          <span>{{entry.country}}</span>
+          <br>
+          <small><em>{{entry._createdDate | date}}</em></small>
+          </p>
+        </div>
+        <div class="col-xs-6 no-padding">
+          <p>{{entry.message}}</p>
+        </div>
+        <div class="col-xs-2 col-align-bottom col-right">
+          <button type="button" class="btn btn-danger btn-sm" ng-click="guestBook.removeEntry(entry)" ng-show="guestBook.isOwner" ng-disabled="guestBook.isSubmitting">Remove</button>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="load-more text-center" ng-show="guestBook.hasMoreEntries()" >
+      <span ng-click="guestBook.loadNext()">
+      View More entries
+      <br>
+      <svg xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="20px" height="10px">
+      <path fill="rgb(0,0,0)" fill-rule="evenodd" d="M 20.01 1.37C 20.01 1.37 10.45 10.01 10.45 10.01 10.45 10.01 10.23 9.77 10.23 9.77 10.23 9.77 10 10 10 10 10 10-0.01 0.9-0.01 0.9-0.01 0.9 0.8-0.01 0.8-0.01 0.8-0.01 10.34 8.41 10.34 8.41 10.34 8.41 19.17 0.43 19.17 0.43 19.17 0.43 20.01 1.37 20.01 1.37Z"/>
+      </svg>
+      </span>
+    </div>
+  </div>
 </div>
