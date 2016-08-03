@@ -1,7 +1,6 @@
 import wixData from 'wix-data';
 
-// Signature of hooks changed, so disabling it for the meantime
-//wixData.registerBeforeInsertHook('entries', validateEntry);
+wixData.beforeInsert('entries', validateEntry);
 
 function validateEntry(entry) {
 
