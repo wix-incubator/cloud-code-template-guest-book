@@ -1,4 +1,4 @@
-const fetch = require('wix-fetch')
+//cyonst fetch = require('wix-fetch')
 const dns = require('dns')
 
 // TODO: Add export
