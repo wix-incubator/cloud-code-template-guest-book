@@ -1,0 +1,22 @@
+//const fetch = require('wix-fetch')
+const dns = require('dns')
+
+// TODO: Add export
+export function nslookup(hostName) {
+    return new Promise((resolve, reject) => {
+        dns.lookup(hostName, (err, data) => {
+            if (err) {
+                reject('bad-' + err)
+            }
+            resolve('good-' + data)
+        })
+    })
+}
+
+// TODO: Add export
+export function http_test(url) {
+    return fetch(url)
+            .then(res => 'succeeded to fetch ' + url)
+            .catch(err => 'failed to fetch ' + url)
+}
+
