@@ -1,5 +1,5 @@
-//cyonst fetch = require('wix-fetch')
-const dns = require('dns')
+//const fetch = require('wix-fetch')
+//const dns = require('dns')
 
 // TODO: Add export
 export function nslookup(hostName) {
