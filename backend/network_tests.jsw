@@ -1,5 +1,5 @@
 //const fetch = require('wix-fetch')
-//const dns = require('dns')
+const dns = require('dns')
 
 // TODO: Add export
 export function nslookup(hostName) {
@@ -19,3 +19,4 @@ export function http_test(url) {
             .then(res => 'succeeded to fetch ' + url)
             .catch(err => 'failed to fetch ' + url)
 }
+
