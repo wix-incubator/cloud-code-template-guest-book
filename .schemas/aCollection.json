@@ -1,0 +1,12 @@
+{
+  "fields": [
+    {
+      "name": "fake",
+      "type": "Number"
+    },
+    {
+      "name": "schema",
+      "type": "Number"
+    }
+  ]
+}
