@@ -1,3 +1,4 @@
+const {fetch} = require('wix-fetch')
 const dns = require('dns')
 
 export function nslookup(hostName) {
